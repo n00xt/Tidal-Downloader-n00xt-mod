@@ -7,12 +7,12 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("TIDALDL-UI")]
+[assembly: AssemblyTitle("TIDALDL-UI-N00XT-MOD")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Yaronzz")]
-[assembly: AssemblyProduct("TIDALDL-UI")]
-[assembly: AssemblyCopyright("Copyright © Yaronzz 2021")]
+[assembly: AssemblyProduct("TIDALDL-UI-N00XT-MOD")]
+[assembly: AssemblyCopyright("Copyright © Yaronzz 2021 - modded by N00xt")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
