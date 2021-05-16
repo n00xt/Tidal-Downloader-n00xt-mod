@@ -1,0 +1,80 @@
+﻿<hc:BlurWindow x:Class="TIDALDL_UI.Pages.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TIDALDL_UI.Pages"
+        xmlns:s="https://github.com/canton7/Stylet"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:aigsc="clr-namespace:AIGS.Control;assembly=AIGS"
+        xmlns:aigs="clr-namespace:AIGS.Common;assembly=AIGS"
+        xmlns:else="clr-namespace:TIDALDL_UI.Else"
+        mc:Ignorable="d"
+        ShowNonClientArea="False"
+        WindowStartupLocation="CenterScreen"
+        Title="TIDAL-GUI" Height="700" Width="1200"
+        d:DataContext="{d:DesignInstance local:MainViewModel}">
+
+    <Grid Background="{DynamicResource RegionBrush}" MouseLeftButtonDown="{s:Action WindowMove}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="75"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <!--Left menu-->
+        <Grid Grid.RowSpan="2" Background="Black">
+            <StackPanel >
+                <Button Margin="0,45,0,15" Background="Black" BorderThickness="0" Height="60" hc:BackgroundSwitchElement.MouseHoverBackground="Gray" Padding="0">
+                    <Path Fill="White" Width="30" Data="{StaticResource LogoGeometry}" Stretch="Uniform"></Path>
+                </Button>
+
+                <Button Command="{s:Action ShowSearch}" Background="Black" BorderThickness="0" Height="60" hc:BackgroundSwitchElement.MouseHoverBackground="Gray" Padding="0" HorizontalAlignment="Stretch">
+                    <Path Fill="LightGray" Width="26" Data="{StaticResource SearchGeometry}" Stretch="Uniform"></Path>
+                </Button>
+                <Button Command="{s:Action ShowDownload}" Background="Black" BorderThickness="0" Height="60" hc:BackgroundSwitchElement.MouseHoverBackground="Gray" Padding="0">
+                    <Path Fill="LightGray" Width="26" Data="{StaticResource SDownloadGeometry}" Stretch="Uniform"></Path>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Height="130" VerticalAlignment="Bottom">
+                <Button Command="{s:Action ShowSettings}" Background="Black" BorderThickness="0" Height="60"  hc:BackgroundSwitchElement.MouseHoverBackground="Gray" Padding="0">
+                    <Path Fill="LightGray" Width="26" Data="{StaticResource SettingsGeometry}" Stretch="Uniform"></Path>
+                </Button>
+                <Button Command="{s:Action ShowAbout}" Background="Black" BorderThickness="0" Height="60" hc:BackgroundSwitchElement.MouseHoverBackground="Gray" Padding="0">
+                    <Path Fill="LightGray" Width="26" Data="{StaticResource AboutGeometry}" Stretch="Uniform"></Path>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <local:SearchView Grid.Row="1" Grid.Column="1" s:View.Model="{Binding VMSearch}" />
+        
+        <local:SettingsView Grid.Row="1" Grid.Column="1" s:View.Model="{Binding VMSettings}" />
+        
+        <local:DownloadView Grid.Row="1" Grid.Column="1" s:View.Model="{Binding VMDownload}" />
+
+        <local:AboutView Grid.RowSpan="3" Grid.ColumnSpan="3" s:View.Model="{Binding VMAbout}" />
+
+        <!--Message page-->
+        <ScrollViewer Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <StackPanel hc:Growl.Token="{x:Static else:Global.TOKEN_MAIN}" VerticalAlignment="Top" Margin="0,10,10,10"/>
+        </ScrollViewer>
+
+        <!--Windows button-->
+        <StackPanel Background="{DynamicResource RegionBrush}" MouseLeftButtonDown="{s:Action WindowMove}" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Column="1" Margin="0" HorizontalAlignment="Right">
+            <Button Command="{s:Action WindowClose}" Height="32" Width="32" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MyButtonClose}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed" Padding="0" Grid.Column="1">
+                <Path Fill="LightGray" Width="12" Data="{StaticResource CloseGeometry}" Stretch="Uniform"></Path>
+            </Button>
+            <Button Command="{s:Action WindowMax}" Height="32" Width="32" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MyButtonDefault}" hc:BackgroundSwitchElement.MouseHoverBackground="{DynamicResource DarkDefaultBrush}" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed" Padding="5" Grid.Column="1">
+                <Path Fill="LightGray" Width="12" Data="{StaticResource WindowMaxGeometry}" Stretch="Uniform"></Path>
+            </Button>
+            <Button Command="{s:Action WindowMin}" Height="32" Width="32" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource MyButtonDefault}" hc:BackgroundSwitchElement.MouseHoverBackground="{DynamicResource DarkDefaultBrush}" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed" Padding="5" Grid.Column="1">
+                <Path Fill="LightGray" Width="12" Data="{StaticResource WindowMinGeometry}" Stretch="Uniform"></Path>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</hc:BlurWindow>

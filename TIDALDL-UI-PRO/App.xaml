@@ -1,0 +1,38 @@
+﻿<Application x:Class="TIDALDL_UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TIDALDL_UI"
+             xmlns:s="https://github.com/canton7/Stylet">
+    <Application.Resources>
+        <s:ApplicationLoader>
+            <s:ApplicationLoader.Bootstrapper>
+                <local:Bootstrapper />
+            </s:ApplicationLoader.Bootstrapper>
+
+            <ResourceDictionary.MergedDictionaries>
+                <!--theme-->
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+
+                <!--control-->
+                <ResourceDictionary Source="Properties/Geometries.xaml" />
+                <ResourceDictionary Source="Properties/ControlResources.xaml" />
+
+                <!--Language-->
+                <ResourceDictionary Source="Properties/Lang/StringResource.Chinese.xaml" />
+                <ResourceDictionary Source="Properties/Lang/StringResource.Russian.xaml" />
+                <ResourceDictionary Source="Properties/Lang/StringResource.Turkish.xaml" />
+                <ResourceDictionary Source="Properties/Lang/StringResource.German.xaml" />
+                <ResourceDictionary Source="Properties/Lang/StringResource.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </s:ApplicationLoader>
+    </Application.Resources>
+</Application>
